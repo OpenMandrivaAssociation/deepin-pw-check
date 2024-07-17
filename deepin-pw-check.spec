@@ -18,6 +18,7 @@ Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 #Source1:	godeps-for-go-libs-6.0.6.tar.xz
 
 BuildRequires:  make
+BuildRequires:  git
 BuildRequires:  compiler(go-compiler)
 BuildRequires:  golang(github.com/godbus/dbus)
 BuildRequires:  golang-github-linuxdeepin-dbus-factory
@@ -46,6 +47,7 @@ adapt to fingerprint, face and other authentication methods.
 
 %prep
 %autosetup -p1
+tar xf %{S:1}
 
 sed -i -e 's|\${PREFIX}/lib$|\${PREFIX}/%{_lib}|; s|cp |cp -a |' Makefile
 sed -i -e 's|/usr/lib|%{_libdir}|' misc/pkgconfig/libdeepin_pw_check.pc
