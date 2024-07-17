@@ -27,7 +27,7 @@ BuildRequires:  pkgconfig(gio-2.0)
 BuildRequires:  pkgconfig(gdk-3.0)
 BuildRequires:  deepin-gettext-tools
 BuildRequires:  cracklib-devel
-BuildRequires:  iniparser-devel >= 4.2.4
+BuildRequires:  iniparser-devel
 BuildRequires:  deepin-gir-generator
 
 %description
