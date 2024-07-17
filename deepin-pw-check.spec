@@ -59,12 +59,12 @@ sed -i 's|gcc |gcc %{build_cflags} %{build_ldflags} |' Makefile
 %build
 # manually build the deepin-pw-check command since it is hard to override
 # Makefile with %%gobuild
-make prepare
-touch prepare
-export GOPATH=%{gopath}
-%gobuild -o out/bin/%{name} service/*.go
+#make prepare
+#touch prepare
+#export GOPATH=%{gopath}
+#%gobuild -o out/bin/%{name} service/*.go
 
-%make_build
+GOPATH=`pwd`/.godeps:%{gopath} %make_build
 
 %install
 export GOPATH=%{gopath}
