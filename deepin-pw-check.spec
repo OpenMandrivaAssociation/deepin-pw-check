@@ -15,7 +15,7 @@ Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 # export GOPATH=$(pwd)/.godeps
 # go mod download
 # tar cJf ../../godeps-for-go-libs-6.0.6.tar.xz .godeps
-Source1:	godeps-for-go-libs-6.0.6.tar.xz
+Source1:	 godeps-for-deepin-pw-check-6.0.2.tar.xz
 
 BuildRequires:  make
 BuildRequires:  git
