@@ -41,8 +41,8 @@ adapt to fingerprint, face and other authentication methods.
 %package devel
 Summary: Header files and libraries used to build deepin-pw-check
 Requires: %{name}%{?_isa} = %{version}-%{release}
-Requires: cracklib-devel%{?_isa}
-Requires: iniparser-devel%{?_isa}
+Requires: cracklib-devel
+Requires: iniparser-devel
 
 %description devel
 In order to unify the authentication interface, this interface is designed to
