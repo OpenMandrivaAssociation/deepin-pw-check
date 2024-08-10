@@ -31,6 +31,9 @@ BuildRequires:  cracklib-devel
 BuildRequires:  iniparser-devel
 BuildRequires:  deepin-gir-generator
 
+%patchlist
+deepin-pw-check-compile.patch
+
 %description
 In order to unify the authentication interface, this interface is designed to
 adapt to fingerprint, face and other authentication methods.
@@ -48,6 +51,7 @@ adapt to fingerprint, face and other authentication methods.
 %prep
 %autosetup -p1
 tar xf %{S:1}
+export GOPATH=$(pwd)/.godeps
 
 sed -i -e 's|\${PREFIX}/lib$|\${PREFIX}/%{_lib}|; s|cp |cp -a |' Makefile
 sed -i -e 's|/usr/lib|%{_libdir}|' misc/pkgconfig/libdeepin_pw_check.pc
@@ -57,17 +61,17 @@ sed -i 's|sprintf(outbuf, err_to_string|sprintf(outbuf, "%s", err_to_string|' pa
 sed -i 's|gcc |gcc %{build_cflags} %{build_ldflags} |' Makefile
 
 %build
+export GOPATH=$(pwd)/.godeps
 # manually build the deepin-pw-check command since it is hard to override
 # Makefile with %%gobuild
 make prepare
 touch prepare
-export GOPATH=%{gopath}
 %gobuild -o out/bin/%{name} service/*.go
 
 %make_build
 
 %install
-export GOPATH=%{gopath}
+export GOPATH=$(pwd)/.godeps
 export PKG_FILE_DIR=%{_libdir}/pkgconfig
 %make_install PKG_FILE_DIR=%{_libdir}/pkgconfig PAM_MODULE_DIR=%{_libdir}/security
 # don't install static library

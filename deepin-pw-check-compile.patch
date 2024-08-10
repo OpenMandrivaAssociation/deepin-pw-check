@@ -1,0 +1,11 @@
+diff -up deepin-pw-check-6.0.2/tool/pwd_conf_update.c.omv~ deepin-pw-check-6.0.2/tool/pwd_conf_update.c
+--- deepin-pw-check-6.0.2/tool/pwd_conf_update.c.omv~	2024-08-10 17:29:58.048837396 +0200
++++ deepin-pw-check-6.0.2/tool/pwd_conf_update.c	2024-08-10 17:30:05.204918558 +0200
+@@ -4,6 +4,7 @@
+ 
+ #include <stdio.h>
+ #include <stdbool.h>
++#include <stdlib.h>
+ #include <string.h>
+ #include <unistd.h>
+ #include <iniparser/iniparser.h>
